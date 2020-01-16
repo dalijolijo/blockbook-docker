@@ -2,14 +2,13 @@
 Easy deployment of Trezor Blockbook for Bitcore in a docker container
 
 ## requirement
-Install the following packages and clone this git repository:
+Clone this git repository:
 ```sh
-apt-get install git docker
 git clone https://github.com/dalijolijo/blockbook-docker.git
 ```
 
 ## easy deployment
-Execute the install script:
+Execute the installation script:
 ```sh
 ./deploy_blockbook_btx.sh
 ```

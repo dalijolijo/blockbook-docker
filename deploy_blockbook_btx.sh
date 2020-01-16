@@ -1,8 +1,11 @@
 #!/bin/bash
-
+set -x
 # variables
 backend_deb="backend-bitcore_0.15.2.1-satoshilabs-1_amd64.deb"
 blockbook_deb="blockbook-bitcore_0.3.1_amd64.deb"
+
+apt-get update
+apt-get install -y build-essential git docker.io
 
 # Generate deb packages
 if [ -f "$backend_deb" ] && [ -f "$blockbook_deb" ]; then
