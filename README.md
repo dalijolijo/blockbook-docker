@@ -1,26 +1,46 @@
 # blockbook-docker
 Easy deployment of Trezor Blockbook for BTX
 
-# Requirement
-Clone this git repository:
+<details>
+<summary>Checkout the repo blockbook-docker</summary>
+<br>
+  
 ```sh
 git clone https://github.com/dalijolijo/blockbook-docker.git
+cd blockbook-docker
+git checkout master
+```
+
+</details>
+
+<details>
+<summary>Install docker.io and docker-compose v.3</summary>
+<br>
+  
+```sh
+./install_docker.sh
 ```
 
 # For development
 
-## Installation
-Execute the installation script:
+<details>
+<summary>iBuild btx-blockbook-docker image</summary>
+<br>
+Execute the deployment script:
 ```sh
 ./deploy_blockbook_btx.sh
 ```
 
-## Start docker container
+<details>
+<summary>Start docker container</summary>
+<br>
 ```sh
 docker run --rm --name btx-blockbook-docker -p 9154:9154 -d btx-blockbook-docker:latest
 ```
 
-## Logging docker container
+<details>
+<summary>Logging docker container</summary>
+<br>
 Find running blockbook docker container:
 ```sh
 docker ps
@@ -30,44 +50,52 @@ Check logging:
 docker logs -f btx-blockbook-docker 
 ```
 
-## Blockbook for BTX in your browser
+<details>
+<summary>Blockbook for BTX in your browser</summary>
+<br>
 Type in: ``https://<SERVER IP>:9154`` 
 
 
 # For production 
 
-## Installation
-Docker Compose Installation: https://docs.docker.com/compose/install/
+<details>
+<summary>Build btx-blockbook-docker image</summary>
+<br>
+Execute the deployment script:
 ```sh
-apt-get install docker-compose
+./deploy_blockbook_btx.sh
 ```
 
-## Build btx-blockbook-docker image (optional)
-If no btx-blockbook-docker image is available on your server, execute the following script:
-```sh
-deploy_blockbook_btx.sh
-```
+<details>
+<summary>Configuration</summary>
+<br>
+Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* folder and in *init-letsencrypt.sh* script with your domain name(s).
 
-## Configuration
-Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* and *init-letsencrypt* folders with your domain name(s).
-
-## Run project for production environment with Certbot
+<details>
+<summary>Run project for production environment with Certbot</summary>
+<br>
 You can get your SSL certificates from Let's Encrypt by running *init-letsencrypt.sh* script. 
 ```sh
 ./init-letsencrypt.sh
 ```
 
-This script will also start your containers. In case you down your containers, you can restart them by following command:
+This script will also start your containers. 
+
+In case you down your containers, you can restart them by following command:
 
 ```sh
-docker-compose -f docker-compose.prod.ssl up
+docker-compose up -d
 ```
 
-## Logging docker containers
+<details>
+<summary>Logging docker containers</summary>
+<br>
 Check logs of docker containers:
 ```sh
 docker-compose logs -f
 ```
 
-## Blockbook for BTX in your browser
-Type in: https://<YOUR_DOMAIN_NAME>
+<details>
+<summary>Blockbook for BTX with SSL in your browser</summary>
+<br>
+Type in: ``https://<YOUR_DOMAIN_NAME>``
