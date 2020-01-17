@@ -1,5 +1,5 @@
 # blockbook-docker
-Easy deployment of Trezor Blockbook for Bitcore in a docker container
+Easy deployment of Trezor Blockbook for BTX
 
 # Requirement
 Clone this git repository:
@@ -30,7 +30,7 @@ Check logging:
 docker logs -f btx-blockbook-docker 
 ```
 
-## blockbook in your browser
+## Blockbook for BTX in your browser
 Type in: ``https://<SERVER IP>:9154`` 
 
 
@@ -69,3 +69,5 @@ Check logs of docker containers:
 docker-compose logs -f
 ```
 
+## Blockbook for BTX in your browser
+Type in: https://<YOUR_DOMAIN_NAME>
