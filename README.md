@@ -42,17 +42,17 @@ Docker Compose Installation: https://docs.docker.com/compose/install/
 apt-get install docker-compose
 ```
 
+## Build btx-blockbook-docker image (optional)
+If no btx-blockbook-docker image is available on your server, execute the following script:
+```sh
+deploy_blockbook_btx.sh
+```
+
 ## Configuration
 Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* and *init-letsencrypt* folders with your domain name(s).
 
 ## Run project for production environment with Certbot
 You can get your SSL certificates from Let's Encrypt by running *init-letsencrypt.sh* script. 
-First make the script executable:
-```sh
-chmod u+x init-letsencrypt.sh 
-```
-
-Then run the script,
 ```sh
 ./init-letsencrypt.sh
 ```
