@@ -1,19 +1,26 @@
 # blockbook-docker
 Easy deployment of Trezor Blockbook for Bitcore in a docker container
 
-## requirement
+# Requirement
 Clone this git repository:
 ```sh
 git clone https://github.com/dalijolijo/blockbook-docker.git
 ```
 
 # For development
+
+## Installation
 Execute the installation script:
 ```sh
 ./deploy_blockbook_btx.sh
 ```
 
-## docker container logging
+## Start docker container
+```sh
+docker run --rm --name btx-blockbook-docker -p 9154:9154 -d btx-blockbook-docker:latest
+```
+
+## Logging docker container
 Find running blockbook docker container:
 ```sh
 docker ps
@@ -35,24 +42,30 @@ Docker Compose Installation: https://docs.docker.com/compose/install/
 apt-get install docker-compose
 ```
 
-## Configurations
+## Configuration
 Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* and *init-letsencrypt* folders with your domain name(s).
 
 ## Run project for production environment with Certbot
 You can get your SSL certificates from Let's Encrypt by running *init-letsencrypt.sh* script. 
-First make the script executable by command below,
+First make the script executable:
 ```sh
 chmod u+x init-letsencrypt.sh 
 ```
 
 Then run the script,
-
 ```sh
 ./init-letsencrypt.sh
 ```
 
-This script will also start your containers. In case you down your containers, you can restart them by following command,
+This script will also start your containers. In case you down your containers, you can restart them by following command:
 
 ```sh
 docker-compose -f docker-compose.prod.ssl up
 ```
+
+## Logging docker containers
+Check logs of docker containers:
+```sh
+docker-compose logs -f
+```
+

@@ -24,7 +24,3 @@ fi
 # Build docker images
 docker build -t btx-blockbook-docker .
 
-echo "Start docker container btx-blockbook-docker..."
-docker run --rm --name btx-blockbook-docker -p 9154:9154 -d btx-blockbook-docker:latest
-
-echo "Show log of docker container with: 'docker logs btx-blockbook-docker'"
