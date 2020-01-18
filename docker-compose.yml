@@ -1,21 +1,19 @@
-version: "3"
+version: '3'
 
 services:
   nginx:
     image: nginx:1.15-alpine
     restart: unless-stopped
     volumes:
-      - ./data/nginx/conf_ssl.d:/etc/nginx/conf.d
+      - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot 
-      - ./static:/static
-      - ./mediafiles:/media
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+      - ./data/certbot/www:/var/www/certbot
     ports:
       - "80:80"
       - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     depends_on:
-      - web 
+      - webapp
 
   certbot:
     image: certbot/certbot
@@ -23,13 +21,13 @@ services:
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 5d & wait $${!}; done;'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
-  web:
+  webapp:
     build:
       context: .
       dockerfile: Dockerfile
     image: btx-blockbook-docker
     container_name: btx-blockbook-docker
     ports:
-      - "8000:9154"
+      - "8080:9154"

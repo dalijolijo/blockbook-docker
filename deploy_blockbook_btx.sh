@@ -23,4 +23,4 @@ fi
 
 # Build docker images
 docker build -t btx-blockbook-docker .
-
+docker tag btx-blockbook-docker webapp
