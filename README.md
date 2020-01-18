@@ -79,7 +79,8 @@ Execute the deployment script:
 <summary>Configuration</summary>
 <br>
   
-Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* folder and in *init-letsencrypt.sh* script with your domain name(s).
+* Replace ***example.com*** domain names in *data/nginx/conf_ssl.d/nginx.conf* folder and in *init-letsencrypt.sh* script with your domain name(s).
+* Set in *init-letsencrypt.sh* script ``staging=1`` if you're testing your setup to avoid hitting request limits.
 </details>
 
 <details>
