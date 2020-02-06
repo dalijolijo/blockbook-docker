@@ -13,26 +13,26 @@ RUN apt-get update && \
                        liblz4-dev graphviz logrotate supervisor sudo && \
     apt-get clean
 
-# Creating bitcore user
-RUN adduser --disabled-password --gecos "" bitcore && \
-    usermod -a -G sudo,bitcore bitcore
+# Creating bitcloud user
+RUN adduser --disabled-password --gecos "" bitcloud && \
+    usermod -a -G sudo,bitcloud bitcloud
 
-# Creating blockbook-bitcore user
-RUN adduser --disabled-password --gecos "" blockbook-bitcore && \
-    usermod -a -G sudo,blockbook-bitcore blockbook-bitcore
+# Creating blockbook-bitcloud user
+RUN adduser --disabled-password --gecos "" blockbook-bitcloud && \
+    usermod -a -G sudo,blockbook-bitcloud blockbook-bitcloud
 
-# Install backend-bitcore
-ADD backend-bitcore_0.15.2.1-satoshilabs-1_amd64.deb .
-RUN apt-get install -y ./backend-bitcore_0.15.2.1-satoshilabs-1_amd64.deb
+# Install backend-bitcloud
+ADD backend-bitcloud_2.1.0.1-satoshilabs-1_amd64.deb .
+RUN apt-get install -y ./backend-bitcloud_2.1.0.1-satoshilabs-1_amd64.deb
 
-# Install blockbook-bitcore
-ADD blockbook-bitcore_0.3.1_amd64.deb .
-RUN apt-get install -y ./blockbook-bitcore_0.3.1_amd64.deb
+# Install blockbook-bitcloud
+ADD blockbook-bitcloud_0.3.1_amd64.deb .
+RUN apt-get install -y ./blockbook-bitcloud_0.3.1_amd64.deb
 
 # Blockbook ports
 #coin 	   blockbook internal port 	blockbook public port 	backend rpc port 	backend service ports (zmq)
-#Bitcore   9054 	                9154 	                8054 	                38354
-EXPOSE 9154 
+#Bitcloud  9062                     9162                    8062                38362 
+EXPOSE 9162
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisor/supervisord.conf"]

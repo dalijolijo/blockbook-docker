@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: btx-blockbook-docker
-    container_name: btx-blockbook-docker
+    image: btdx-blockbook-docker
+    container_name: btdx-blockbook-docker
     ports:
-      - "8080:9154"
+      - "8080:9162"

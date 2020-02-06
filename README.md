@@ -1,4 +1,4 @@
-# blockbook-docker - Easy deployment of Trezor Blockbook for BTX
+# blockbook-docker - Easy deployment of Trezor Blockbook for BTDX
 
 ## Preperations
 <details>
@@ -24,12 +24,12 @@ git checkout master
 ## For development
 
 <details>
-<summary>iBuild btx-blockbook-docker image</summary>
+<summary>Build btdx-blockbook-docker image</summary>
 <br>
 
 Execute the deployment script:
 ```sh
-./deploy_blockbook_btx.sh
+./deploy_blockbook_btdx.sh
 ```
 </details>
 
@@ -38,7 +38,7 @@ Execute the deployment script:
 <br>
 
 ```sh
-docker run --rm --name btx-blockbook-docker -p 9154:9154 -d btx-blockbook-docker:latest
+docker run --rm --name btdx-blockbook-docker -p 9162:9162 -d btdx-blockbook-docker:latest
 ```
 </details>
 
@@ -52,26 +52,26 @@ docker ps
 ```
 Check logging:
 ```sh
-docker logs -f btx-blockbook-docker 
+docker logs -f btdx-blockbook-docker 
 ```
 </details>
 
 <details>
-<summary>Blockbook for BTX in your browser</summary>
+<summary>Blockbook for BTDX in your browser</summary>
 <br>
 
-Type in: ``https://<SERVER IP>:9154`` 
+Type in: ``https://<SERVER IP>:9162`` 
 </details>
 
 ## For production 
 
 <details>
-<summary>Build btx-blockbook-docker image</summary>
+<summary>Build btdx-blockbook-docker image</summary>
 <br>
   
 Execute the deployment script:
 ```sh
-./deploy_blockbook_btx.sh
+./deploy_blockbook_btdx.sh
 ```
 </details>
 
@@ -118,7 +118,7 @@ docker-compose logs -f
 </details>
 
 <details>
-<summary>Blockbook for BTX with SSL in your browser</summary>
+<summary>Blockbook for BTDX with SSL in your browser</summary>
 <br>
 
 Type in: ``https://<YOUR_DOMAIN_NAME>``
