@@ -34,5 +34,6 @@ RUN apt-get install -y ./blockbook-bitcloud_0.3.1_amd64.deb
 #Bitcloud  9062                     9162                    8062                38362 
 EXPOSE 9162
 
+COPY bitcloudd.start /opt/coins/nodes/bitcloud/bitcloudd.start 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisor/supervisord.conf"]
